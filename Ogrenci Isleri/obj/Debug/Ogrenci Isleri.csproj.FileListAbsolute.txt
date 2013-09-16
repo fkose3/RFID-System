@@ -1,9 +1,0 @@
-D:\Projeler\RFID\Ogrenci Isleri\bin\Debug\Ogrenci Isleri.exe.config
-D:\Projeler\RFID\Ogrenci Isleri\bin\Debug\Ogrenci Isleri.exe
-D:\Projeler\RFID\Ogrenci Isleri\bin\Debug\Ogrenci Isleri.pdb
-D:\Projeler\RFID\Ogrenci Isleri\obj\Debug\Ogrenci Isleri.csprojResolveAssemblyReference.cache
-D:\Projeler\RFID\Ogrenci Isleri\obj\Debug\Ogrenci_Isleri.OgrenciIsleri.resources
-D:\Projeler\RFID\Ogrenci Isleri\obj\Debug\Ogrenci_Isleri.Properties.Resources.resources
-D:\Projeler\RFID\Ogrenci Isleri\obj\Debug\Ogrenci Isleri.csproj.GenerateResource.Cache
-D:\Projeler\RFID\Ogrenci Isleri\obj\Debug\Ogrenci Isleri.exe
-D:\Projeler\RFID\Ogrenci Isleri\obj\Debug\Ogrenci Isleri.pdb
