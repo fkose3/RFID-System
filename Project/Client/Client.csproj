@@ -69,6 +69,7 @@
     <Compile Include="DersProgrami.Designer.cs">
       <DependentUpon>DersProgrami.cs</DependentUpon>
     </Compile>
+    <Compile Include="Lesson.cs" />
     <Compile Include="MBSContent.cs">
       <SubType>UserControl</SubType>
     </Compile>
