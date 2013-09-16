@@ -1,0 +1,13 @@
+D:\Projeler\RFID\Client\bin\Debug\Client.exe
+D:\Projeler\RFID\Client\bin\Debug\Client.pdb
+D:\Projeler\RFID\Client\obj\Debug\Client.csprojResolveAssemblyReference.cache
+D:\Projeler\RFID\Client\obj\Debug\Client.Properties.Resources.resources
+D:\Projeler\RFID\Client\obj\Debug\Client.csproj.GenerateResource.Cache
+D:\Projeler\RFID\Client\obj\Debug\Client.exe
+D:\Projeler\RFID\Client\obj\Debug\Client.pdb
+D:\Projeler\RFID\Client\obj\Debug\Client.cMainForm.resources
+D:\Projeler\RFID\Client\obj\Debug\Client.MBSContent.resources
+D:\Projeler\RFID\Client\obj\Debug\Client.DersProgrami.resources
+D:\Projeler\RFID\Client\obj\Debug\Client.ProgressBarBlue.resources
+D:\Gits\RFID\Client\obj\Debug\Client.exe
+D:\Gits\RFID\Client\obj\Debug\Client.pdb
