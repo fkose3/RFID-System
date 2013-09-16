@@ -11,5 +11,3 @@ D:\Projeler\RFID\Client\obj\Debug\Client.DersProgrami.resources
 D:\Projeler\RFID\Client\obj\Debug\Client.ProgressBarBlue.resources
 D:\Gits\RFID\Client\obj\Debug\Client.exe
 D:\Gits\RFID\Client\obj\Debug\Client.pdb
-C:\Users\KOSE\Documents\GitHub\RFID-System\Project\Client\obj\Debug\Client.exe
-C:\Users\KOSE\Documents\GitHub\RFID-System\Project\Client\obj\Debug\Client.pdb
