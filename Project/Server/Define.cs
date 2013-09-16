@@ -36,6 +36,7 @@ namespace Server
          */
 
         public const byte WIZ_STUDENT_ABSENTEEISM = 0x00;
+        public const byte WIZ_STUDENT_LESSON_LIST = 0x01;
         
 
         public static float TimeGet()

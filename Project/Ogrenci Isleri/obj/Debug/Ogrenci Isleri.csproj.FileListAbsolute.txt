@@ -7,3 +7,12 @@ D:\Projeler\RFID\Ogrenci Isleri\obj\Debug\Ogrenci_Isleri.Properties.Resources.re
 D:\Projeler\RFID\Ogrenci Isleri\obj\Debug\Ogrenci Isleri.csproj.GenerateResource.Cache
 D:\Projeler\RFID\Ogrenci Isleri\obj\Debug\Ogrenci Isleri.exe
 D:\Projeler\RFID\Ogrenci Isleri\obj\Debug\Ogrenci Isleri.pdb
+C:\Users\KOSE\Documents\GitHub\RFID-System\Project\Ogrenci Isleri\bin\Debug\Ogrenci Isleri.exe.config
+C:\Users\KOSE\Documents\GitHub\RFID-System\Project\Ogrenci Isleri\bin\Debug\Ogrenci Isleri.exe
+C:\Users\KOSE\Documents\GitHub\RFID-System\Project\Ogrenci Isleri\bin\Debug\Ogrenci Isleri.pdb
+C:\Users\KOSE\Documents\GitHub\RFID-System\Project\Ogrenci Isleri\obj\Debug\Ogrenci Isleri.csprojResolveAssemblyReference.cache
+C:\Users\KOSE\Documents\GitHub\RFID-System\Project\Ogrenci Isleri\obj\Debug\Ogrenci_Isleri.OgrenciIsleri.resources
+C:\Users\KOSE\Documents\GitHub\RFID-System\Project\Ogrenci Isleri\obj\Debug\Ogrenci_Isleri.Properties.Resources.resources
+C:\Users\KOSE\Documents\GitHub\RFID-System\Project\Ogrenci Isleri\obj\Debug\Ogrenci Isleri.csproj.GenerateResource.Cache
+C:\Users\KOSE\Documents\GitHub\RFID-System\Project\Ogrenci Isleri\obj\Debug\Ogrenci Isleri.exe
+C:\Users\KOSE\Documents\GitHub\RFID-System\Project\Ogrenci Isleri\obj\Debug\Ogrenci Isleri.pdb

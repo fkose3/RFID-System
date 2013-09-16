@@ -7,3 +7,12 @@ D:\Projeler\RFID\Server\obj\Debug\Server.windowsPane.resources
 D:\Projeler\RFID\Server\obj\Debug\Server.csproj.GenerateResource.Cache
 D:\Projeler\RFID\Server\obj\Debug\Server.isActiveClients.resources
 D:\Projeler\RFID\Server\obj\Debug\Server.EditUser.resources
+C:\Users\KOSE\Documents\GitHub\RFID-System\Project\Server\obj\Debug\Server.csprojResolveAssemblyReference.cache
+C:\Users\KOSE\Documents\GitHub\RFID-System\Project\Server\obj\Debug\Server.EditUser.resources
+C:\Users\KOSE\Documents\GitHub\RFID-System\Project\Server\obj\Debug\Server.isActiveClients.resources
+C:\Users\KOSE\Documents\GitHub\RFID-System\Project\Server\obj\Debug\Server.windowsPane.resources
+C:\Users\KOSE\Documents\GitHub\RFID-System\Project\Server\obj\Debug\Server.csproj.GenerateResource.Cache
+C:\Users\KOSE\Documents\GitHub\RFID-System\Project\Server\obj\Debug\Server.exe
+C:\Users\KOSE\Documents\GitHub\RFID-System\Project\Server\bin\Debug\Server.exe
+C:\Users\KOSE\Documents\GitHub\RFID-System\Project\Server\bin\Debug\Server.pdb
+C:\Users\KOSE\Documents\GitHub\RFID-System\Project\Server\obj\Debug\Server.pdb

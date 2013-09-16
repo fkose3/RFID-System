@@ -6,3 +6,11 @@ D:\Projeler\RFID\OgretimGorevlisi\obj\Debug\OgretimGorevlisi.Properties.Resource
 D:\Projeler\RFID\OgretimGorevlisi\obj\Debug\OgretimGorevlisi.csproj.GenerateResource.Cache
 D:\Projeler\RFID\OgretimGorevlisi\obj\Debug\OgretimGorevlisi.exe
 D:\Projeler\RFID\OgretimGorevlisi\obj\Debug\OgretimGorevlisi.pdb
+C:\Users\KOSE\Documents\GitHub\RFID-System\Project\OgretimGorevlisi\bin\Debug\OgretimGorevlisi.exe.config
+C:\Users\KOSE\Documents\GitHub\RFID-System\Project\OgretimGorevlisi\bin\Debug\OgretimGorevlisi.exe
+C:\Users\KOSE\Documents\GitHub\RFID-System\Project\OgretimGorevlisi\bin\Debug\OgretimGorevlisi.pdb
+C:\Users\KOSE\Documents\GitHub\RFID-System\Project\OgretimGorevlisi\obj\Debug\OgretimGorevlisi.csprojResolveAssemblyReference.cache
+C:\Users\KOSE\Documents\GitHub\RFID-System\Project\OgretimGorevlisi\obj\Debug\OgretimGorevlisi.Properties.Resources.resources
+C:\Users\KOSE\Documents\GitHub\RFID-System\Project\OgretimGorevlisi\obj\Debug\OgretimGorevlisi.csproj.GenerateResource.Cache
+C:\Users\KOSE\Documents\GitHub\RFID-System\Project\OgretimGorevlisi\obj\Debug\OgretimGorevlisi.exe
+C:\Users\KOSE\Documents\GitHub\RFID-System\Project\OgretimGorevlisi\obj\Debug\OgretimGorevlisi.pdb

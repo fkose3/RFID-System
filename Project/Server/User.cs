@@ -45,6 +45,8 @@ namespace Server
                 case Define.WIZ_STUDENT_ABSENTEEISM:
                     AbsenteeismSend();
                     break;
+                case Define.WIZ_STUDENT_LESSON_LIST:
+                    break;
             }
 
         }

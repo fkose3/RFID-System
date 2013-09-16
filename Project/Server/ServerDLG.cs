@@ -11,6 +11,10 @@ namespace Server
 
         bool isForm = false;
         public List<User> m_UserArray = new List<User>();
+        public List<Lesson> m_LessonArray = new List<Lesson>();
+        public List<Teacher> m_TeacherArray = new List<Teacher>();
+        public List<Lesson_Program> m_LessonProgram = new List<Lesson_Program>();
+
         Packet pkt;
 
         _SQL m_db;
@@ -25,49 +29,80 @@ namespace Server
             Print("****************************************", 2);
             Print("*****    Server Program Started    *****", 2);
             Print("****************************************", 2);
-
-            Print("-> Dinleyici Başlatiliyor...", 4);
-
-            if (!CreatePacket())
-            {
-                Print("\t[  FAIL  ]", 1);
-                return;
-            }
-
-            Print("\t[  OK  ]", 2);
-
-            m_db = new _SQL("Kn_online", this);
-
-            Print("-> SQL Bağlantiti gerceklestiriliyor...", 4);
-            if (!m_db.checkConnect())
-            {
-                Print("\t[  FAIL  ]", 1);
-                return;
-            }
-
-            Print("\t[  OK  ]", 2);
-
-            Print("-> SQL Command Baslatiliyor...", 4);
             try
             {
-                m_SqlCommand = new _SQL_Command(m_db.GetSqlConnet());
+                Print("-> Dinleyici Başlatiliyor...", 4);
+
+                if (!CreatePacket())
+                {
+                    Print("\t[  FAIL  ]", 1);
+                    FailingProgram();
+                }
+
+                Print("\t[  OK  ]", 2);
+
+                m_db = new _SQL("RFID_SYSTEM", this);
+
+                Print("-> SQL Bağlantiti gerceklestiriliyor...", 4);
+                if (!m_db.checkConnect())
+                {
+                    Print("\t[  FAIL  ]", 1);
+                    FailingProgram();
+                }
+
+                Print("\t[  OK  ]", 2);
+
+                Print("-> SQL Command Baslatiliyor...", 4);
+
+                m_SqlCommand = new _SQL_Command(m_db.GetSqlConnet(),this);
                 Print("\t[ OK ]", 2);
+
+
+                Print("-> Ders Listesi Okunuyor...", 4);
+
+                m_LessonArray = m_SqlCommand.LessonList();
+
+                if (m_LessonArray.Count > 0)
+                    Print("\t[ OK ]", 2);
+                else
+                    Print("\t[ Emty ]", 5);
+
+
+                Print("-> Ogretmen Listesi Okunuyor...", 4);
+
+                m_TeacherArray = m_SqlCommand.TeacherList();
+
+                if (m_TeacherArray.Count > 0)
+                    Print("\t[ OK ]", 2);
+                else
+                    Print("\t[ Emty ]", 5);
+
+                Print("-> Ders Programı Listesi Okunuyor...", 4);
+
+                m_LessonProgram = m_SqlCommand.LessonProgram();
+
+                if (m_LessonProgram.Count > 0)
+                    Print("\t[ OK ]", 2);
+                else
+                    Print("\t[ Emty ]", 5);
+
+
+                if (!isForm)
+                {
+                    isForm = !isForm;
+                    try
+                    {
+                        Application.EnableVisualStyles();
+                        Application.SetCompatibleTextRenderingDefault(false);
+                        Application.Run(new windowsPane(this));
+                    }
+                    catch { }
+                }
             }
             catch
             {
                 Print("\t[ FAIL ]", 1);
-            }
-
-            if (!isForm)
-            {
-                isForm = !isForm;
-                try
-                {
-                    Application.EnableVisualStyles();
-                    Application.SetCompatibleTextRenderingDefault(false);
-                    Application.Run(new windowsPane(this));
-                }
-                catch { }
+                FailingProgram();
             }
 
 
@@ -109,6 +144,38 @@ namespace Server
             }
 
             return new User( -1 );
+        }
+
+        public Lesson LessonPtr(int lesson_id) // Getter Lesson
+        {
+            Lesson lesson = null;
+
+            foreach (Lesson ls in m_LessonArray)
+            {
+                if (ls.LessonID == lesson_id)
+                {
+                    lesson = ls;
+                    break;
+                }
+            }
+
+            return lesson;
+        }
+
+        public Teacher TeacherPtr(int teacher_id) // Getter Tacher
+        {
+            Teacher tch = null;
+
+            foreach (Teacher tc in m_TeacherArray)
+            {
+                if (tc.TeacherID == teacher_id)
+                {
+                    tch = tc;
+                    break;
+                }
+            }
+
+            return tch;
         }
 
         public void newUser(Socket soc , byte[] data)  // New User 
@@ -192,10 +259,20 @@ namespace Server
                 case 4:
                     Console.ForegroundColor = ConsoleColor.Gray;
                     break;
+                case 5:
+                    Console.ForegroundColor = ConsoleColor.Magenta;
+                    break;
             }
 
             Console.WriteLine(Text);
             return Text;
+        }
+
+        private void FailingProgram()
+        {
+            Print("Devametmek için Enter a basın", 3);
+            Console.ReadLine();
+            Environment.Exit(0);
         }
 
     }

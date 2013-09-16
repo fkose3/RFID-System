@@ -13,3 +13,12 @@ D:\Gits\RFID\Client\obj\Debug\Client.exe
 D:\Gits\RFID\Client\obj\Debug\Client.pdb
 C:\Users\KOSE\Documents\GitHub\RFID-System\Project\Client\obj\Debug\Client.exe
 C:\Users\KOSE\Documents\GitHub\RFID-System\Project\Client\obj\Debug\Client.pdb
+C:\Users\KOSE\Documents\GitHub\RFID-System\Project\Client\bin\Debug\Client.exe
+C:\Users\KOSE\Documents\GitHub\RFID-System\Project\Client\bin\Debug\Client.pdb
+C:\Users\KOSE\Documents\GitHub\RFID-System\Project\Client\obj\Debug\Client.csprojResolveAssemblyReference.cache
+C:\Users\KOSE\Documents\GitHub\RFID-System\Project\Client\obj\Debug\Client.cMainForm.resources
+C:\Users\KOSE\Documents\GitHub\RFID-System\Project\Client\obj\Debug\Client.DersProgrami.resources
+C:\Users\KOSE\Documents\GitHub\RFID-System\Project\Client\obj\Debug\Client.ProgressBarBlue.resources
+C:\Users\KOSE\Documents\GitHub\RFID-System\Project\Client\obj\Debug\Client.Properties.Resources.resources
+C:\Users\KOSE\Documents\GitHub\RFID-System\Project\Client\obj\Debug\Client.MBSContent.resources
+C:\Users\KOSE\Documents\GitHub\RFID-System\Project\Client\obj\Debug\Client.csproj.GenerateResource.Cache

@@ -39,10 +39,7 @@ namespace Server
                     lstCommand.Items.Add("-> Active Client list [  " + m_pMain.m_UserArray.Count + "  ]");
                     new isActiveClients(m_pMain.m_UserArray,m_pMain).Show();
                     break;
-                case "send_test_packet":
-                    lstCommand.Items.Add("-> Test Packet Forms");
-                    new z(m_pMain);
-                    break;
+                
                 default:
                     if( command != "")
                     lstCommand.Items.Add("Bad Command [ " + command + " ]");
