@@ -1,0 +1,8 @@
+D:\Projeler\RFID\OgretimGorevlisi\bin\Debug\OgretimGorevlisi.exe.config
+D:\Projeler\RFID\OgretimGorevlisi\bin\Debug\OgretimGorevlisi.exe
+D:\Projeler\RFID\OgretimGorevlisi\bin\Debug\OgretimGorevlisi.pdb
+D:\Projeler\RFID\OgretimGorevlisi\obj\Debug\OgretimGorevlisi.csprojResolveAssemblyReference.cache
+D:\Projeler\RFID\OgretimGorevlisi\obj\Debug\OgretimGorevlisi.Properties.Resources.resources
+D:\Projeler\RFID\OgretimGorevlisi\obj\Debug\OgretimGorevlisi.csproj.GenerateResource.Cache
+D:\Projeler\RFID\OgretimGorevlisi\obj\Debug\OgretimGorevlisi.exe
+D:\Projeler\RFID\OgretimGorevlisi\obj\Debug\OgretimGorevlisi.pdb
