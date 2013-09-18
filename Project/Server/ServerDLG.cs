@@ -17,7 +17,7 @@ namespace Server
 
         Packet pkt;
 
-        _SQL m_db;
+        private _SQL m_db;
 
         public _SQL_Command m_SqlCommand;
 

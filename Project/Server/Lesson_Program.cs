@@ -9,6 +9,9 @@ namespace Server
         private int lesson_id, teacher_id;
         private string lesson_name, teacher_name;
         private string Date;
+        private int student_grade;
+        private string branch;
+
 
         public int LessonID
         {

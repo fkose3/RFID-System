@@ -37,7 +37,7 @@ namespace Server
 
         public string StudentFullName
         {
-            get { return student_name + " " + student_surn; }
+            get { return student_name + " " + student_surn; }   
         }
     }
 }

@@ -50,13 +50,6 @@ namespace Server
             return Ab_List;
         }
 
-        public List<Lesson> GetLessonList(int StudentNumber)
-        {
-            List<Lesson> LesList = new List<Lesson>();
-
-            
-            return LesList;
-        }
 
         /** 
          * Program starts to read the tables.
