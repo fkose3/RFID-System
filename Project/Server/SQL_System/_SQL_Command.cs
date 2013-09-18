@@ -136,5 +136,38 @@ namespace Server
 
             return L_list;
         }
+
+        public List<Student> StudensList()
+        {
+            List<Student> sts_list = new List<Student>();
+
+            main_Conn.Open();
+
+            command.CommandText = "SELECT student_name,student_surn,number,adres,tel1,tel2,birthday,savedate,card_number FROM Student";
+
+            D_reader = command.ExecuteReader();
+
+            while (D_reader.Read())
+            {
+                Student sts = new Student();
+                int i = -1;
+
+                sts.StudentName = D_reader.GetValue(++i).ToString();
+                sts.StudentSurn = D_reader.GetValue(++i).ToString();
+                sts.StudentNum = Convert.ToInt32(D_reader.GetValue(++i));
+                sts.Adress = D_reader.GetValue(++i).ToString();
+                sts.Tel1 = D_reader.GetValue(++i).ToString();
+                sts.Tel2 = D_reader.GetValue(++i).ToString();
+                sts.BirthDay = D_reader.GetValue(++i).ToString();
+                sts.SaveDate = D_reader.GetValue(++i).ToString();
+                sts.StudentCartCode = D_reader.GetValue(++i).ToString();
+
+                sts_list.Add(sts);
+            }
+
+            main_Conn.Close();
+
+            return sts_list;
+        }
     }
 }

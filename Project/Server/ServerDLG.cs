@@ -14,6 +14,7 @@ namespace Server
         public List<Lesson> m_LessonArray = new List<Lesson>();
         public List<Teacher> m_TeacherArray = new List<Teacher>();
         public List<Lesson_Program> m_LessonProgram = new List<Lesson_Program>();
+        public List<Student> m_StudentArray = new List<Student>();
 
         Packet pkt;
 
@@ -63,7 +64,7 @@ namespace Server
                 m_LessonArray = m_SqlCommand.LessonList();
 
                 if (m_LessonArray.Count > 0)
-                    Print("\t[ OK ]", 2);
+                    Print("\t[ OK ]\t[ Count : " + m_LessonArray.Count + " ]", 2);
                 else
                     Print("\t[ Emty ]", 5);
 
@@ -73,7 +74,7 @@ namespace Server
                 m_TeacherArray = m_SqlCommand.TeacherList();
 
                 if (m_TeacherArray.Count > 0)
-                    Print("\t[ OK ]", 2);
+                    Print("\t[ OK ]\t[ Count : " + m_TeacherArray.Count + " ]", 2);
                 else
                     Print("\t[ Emty ]", 5);
 
@@ -82,7 +83,17 @@ namespace Server
                 m_LessonProgram = m_SqlCommand.LessonProgram();
 
                 if (m_LessonProgram.Count > 0)
-                    Print("\t[ OK ]", 2);
+                    Print("\t[ OK ]\t[ Count : " + m_LessonProgram.Count + " ]", 2);
+                else
+                    Print("\t[ Emty ]", 5);
+
+
+                Print("-> Ogrenci Listesi Okunuyor...", 4);
+
+                m_StudentArray = m_SqlCommand.StudensList();
+
+                if (m_StudentArray.Count > 0)
+                    Print("\t[ OK ]\t[ Count : " + m_StudentArray.Count + " ]", 2);
                 else
                     Print("\t[ Emty ]", 5);
 

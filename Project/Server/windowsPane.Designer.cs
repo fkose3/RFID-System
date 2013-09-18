@@ -45,6 +45,7 @@
             this.lstCommand.BackColor = System.Drawing.SystemColors.InfoText;
             this.lstCommand.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.lstCommand.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lstCommand.Enabled = false;
             this.lstCommand.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lstCommand.ForeColor = System.Drawing.SystemColors.ScrollBar;
             this.lstCommand.FormattingEnabled = true;
