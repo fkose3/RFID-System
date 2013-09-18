@@ -19,7 +19,6 @@ namespace Server
             m_sSid = Sid;
         }
 
-
         public void Parsing(byte[] pBuf, int index = 0)
         {
             byte command = 0;

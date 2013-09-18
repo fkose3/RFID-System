@@ -112,7 +112,7 @@ namespace Server
 
             main_Conn.Open();
 
-            command.CommandText = "SELECT lesson_id,teacher_id,dates,times FROM Lesson_Program";
+            command.CommandText = "SELECT lesson_id,teacher_id,dates,times,grade,branch FROM Lesson_Program";
 
             D_reader = command.ExecuteReader();
 
@@ -126,6 +126,7 @@ namespace Server
                 prg.TeacherID = Convert.ToInt32(D_reader.GetValue(++i));
                 prg.TeacherNane = m_pMain.TeacherPtr(prg.TeacherID).TeacherFullName;
                 prg.isDate = D_reader.GetValue(++i).ToString();
+
 
                 L_list.Add(prg);
             }

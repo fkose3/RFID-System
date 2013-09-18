@@ -12,6 +12,11 @@ namespace Server
         private int student_grade;
         private string branch;
 
+        public int Grade
+        {
+            get { return student_grade; }
+            set { student_grade = value; }
+        }
 
         public int LessonID
         {
@@ -35,6 +40,12 @@ namespace Server
         {
             set { teacher_name = value; }
             get { return teacher_name; }
+        }
+
+        public string Branch
+        {
+            get { return branch; }
+            set { branch = value; }
         }
 
         public string isDate
