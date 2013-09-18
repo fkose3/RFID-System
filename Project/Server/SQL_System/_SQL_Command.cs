@@ -126,7 +126,8 @@ namespace Server
                 prg.TeacherID = Convert.ToInt32(D_reader.GetValue(++i));
                 prg.TeacherNane = m_pMain.TeacherPtr(prg.TeacherID).TeacherFullName;
                 prg.isDate = D_reader.GetValue(++i).ToString();
-
+                prg.Grade = Convert.ToInt32(D_reader.GetValue(++i));
+                prg.Branch = D_reader.GetValue(++i).ToString();
 
                 L_list.Add(prg);
             }

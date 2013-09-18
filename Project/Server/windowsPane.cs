@@ -20,7 +20,8 @@ namespace Server
 
         private void windowsPane_Load(object sender, EventArgs e)
         {
-
+            txtCommand.Focus();
+            txtCommand.Select();
         }
 
         private void txtCommand_KeyDown(object sender, KeyEventArgs e)
