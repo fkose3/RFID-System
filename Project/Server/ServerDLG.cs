@@ -189,6 +189,36 @@ namespace Server
             return tch;
         }
 
+        public Student StudentPtr(string key, bool number = false /* if the number of students*/)// Get Student
+        {
+            Student std = null;
+            try
+            {
+                foreach (Student st in m_StudentArray)
+                {
+                    if (number)
+                    {
+                        if (st.StudentNum != int.Parse(key)) continue;
+
+                        std = st;
+                        break;
+                    }
+                    else
+                    {
+                        if (st.StudentCartCode != key) continue;
+
+                        std = st;
+                    }
+                }
+            }
+            catch
+            {
+                Print("Unknown type : StudentPrt", 1);
+                std = null;
+            }
+            return std;
+        }
+
         public void newUser(Socket soc , byte[] data)  // New User 
         {
             User MyUser = null;
