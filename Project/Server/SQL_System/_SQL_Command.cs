@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Data.SqlClient;
+using System.Data;
 
 namespace Server
 {
@@ -174,10 +175,31 @@ namespace Server
          * Program  to insert the tables.
          */
 
-        public bool InsertStudent(string name,string surn, int num,string card,string birth_day,string tel1,string tel2)
+        public int InsertStudent(string name,string surn, int num,string card,string birth_day,string tel1,string tel2,string adress)
         {
+            int nRet = 0 ;
+            main_Conn.Open();
 
-            return true;
+            command.CommandText = "exec NewStudent @nRet,'"+name+"','"+surn+"',"+num+",'"+adress+"','"+tel1+"','"+tel2+"','"+birth_day+"','"+card+"'";
+
+            command.CommandType = System.Data.CommandType.StoredProcedure;
+
+            command.Parameters.Clear();
+
+            SqlParameter outputParam = new SqlParameter("@nRet", SqlDbType.Int)
+            {
+                Direction = ParameterDirection.Output
+            };
+
+            command.Parameters.Add(outputParam);
+
+            command.ExecuteNonQuery();
+
+            nRet = int.Parse(outputParam.Value.ToString());
+
+            main_Conn.Close();
+
+            return nRet;
         }
 
     }
