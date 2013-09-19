@@ -42,6 +42,7 @@
     <Compile Include="Absenteeism.cs" />
     <Compile Include="Lesson.cs" />
     <Compile Include="Lesson_Program.cs" />
+    <Compile Include="newEventHandle.cs" />
     <Compile Include="SQL_System\_SQL.cs" />
     <Compile Include="Define.cs" />
     <Compile Include="EditUser.cs">

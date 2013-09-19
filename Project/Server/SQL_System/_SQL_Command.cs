@@ -169,5 +169,16 @@ namespace Server
 
             return sts_list;
         }
+
+        /** 
+         * Program  to insert the tables.
+         */
+
+        public bool InsertStudent(string name,string surn, int num,string card,string birth_day,string tel1,string tel2)
+        {
+
+            return true;
+        }
+
     }
 }
