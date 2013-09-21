@@ -1,5 +1,5 @@
 Alter PROCEDURE Account_Login
-	@nRet tinyint,
+	@nRet tinyint output,
 	@acc varchar(21),
 	@pwd varchar(100)
 as 
