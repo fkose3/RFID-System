@@ -6,16 +6,10 @@ namespace Server
 {
     public static class newEventHandle
     {
-        private static _SQL_Command m_Command = null;
-        private static ServerDLG m_pMain = null;
-        /*
+        public static _SQL_Command m_Command = null;
+        public static ServerDLG m_pMain = null;
 
-        public newEventHandle(_SQL_Command comm,ServerDLG main)
-        {
-
-            m_Command = comm;
-            m_pMain = main;
-        }*/
+        
 
         public static void InsertNewStudent( Student pStd )
         {

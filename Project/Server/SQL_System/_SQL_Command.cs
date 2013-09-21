@@ -20,10 +20,6 @@ namespace Server
             m_pMain = main;
         }
 
-        /**
-         * Absenteeism Get SQL Server 
-         * And Send System 
-         */
 
         public List<Absenteeism> GetAbsenteeism(int StudentNumber)
         {
@@ -50,7 +46,18 @@ namespace Server
 
             return Ab_List;
         }
+        public UserData Login(string acc, string pwd)
+        {
+            UserData uData = null;
 
+            main_Conn.Open();
+
+
+
+            main_Conn.Close();
+
+            return uData;
+        }
 
         /** 
          * Program starts to read the tables.

@@ -12,6 +12,8 @@ namespace Server
         private float OnlineRemain = 0;
         private string _IP;
         private bool _isOnline;
+        public UserData m_pUserData;
+
         public ServerDLG m_pMain; 
 
         public User(short Sid)
@@ -73,6 +75,17 @@ namespace Server
 
             Send(send_buff, send_index);
 
+        }
+
+        public void Logining(byte[] pBuf, int index)
+        {
+            short len = Tampon.GetShort(pBuf, ref index);
+            string acc, pwd;
+            acc = Tampon.GetString(pBuf, len, ref index);
+            len = Tampon.GetShort(pBuf, ref index);
+            pwd = Tampon.GetString(pBuf, len, ref index);
+
+            m_pUserData = m_pMain.m_SqlCommand.Login( acc , pwd );
         }
 
         public void OnlineProcess(byte[] pBuf = null  , int index = -1 )

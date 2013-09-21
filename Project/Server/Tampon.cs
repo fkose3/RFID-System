@@ -21,6 +21,17 @@ namespace Server
             for (int i = 0; i < text_len; i++)
                 text_buff[++text_index] = get_buff[++get_index];
         }
+
+        public static string GetString(byte[] get_buff, int text_len, ref int get_index) // Denendi Tamam
+        {
+            int text_index = -1;
+            byte[] text_buff = new byte[text_len];
+            for (int i = 0; i < text_len; i++)
+                text_buff[++text_index] = get_buff[++get_index];
+
+            return Encoding.UTF8.GetString(text_buff);
+        }
+
         // Byte Value
         public static void SetByte(ref byte[] send_buff, byte bytes, ref int send_index) // Denendi Tamam
         {
@@ -47,6 +58,8 @@ namespace Server
                 send_buff[++send_index] = NewByte[i];
 
         }
+
+
         // DWORD Value
         public static void SetDWORD(ref byte[] send_buff, Int32 tmp, ref int send_index) // Denendi Tamam
         {
@@ -67,10 +80,18 @@ namespace Server
                 /*| ((send_buff[++send_index]) << 16) // DWORD
                 | ((send_buff[++send_index]) << 24)*/);
         }
+
+        public static short GetShort(byte[] send_buff, ref int send_index) // Denendi Tamam
+        {
+            Int16 tmp = Convert.ToInt16(send_buff[++send_index]
+                              | ((send_buff[++send_index]) << 8));
+            return tmp;
+        }
+
         // DWORD Value
         public static void GetDWORD(byte[] send_buff, ref Int32 tmp, ref int send_index) // Denendi Tamam
         {
-            tmp = Convert.ToInt16(send_buff[++send_index]
+            tmp = Convert.ToInt32(send_buff[++send_index]
                               | ((send_buff[++send_index]) << 8)
                               | ((send_buff[++send_index]) << 16)
                               | ((send_buff[++send_index]) << 24));

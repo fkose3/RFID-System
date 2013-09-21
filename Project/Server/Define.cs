@@ -19,7 +19,7 @@ namespace Server
         public const byte WIZ_LOGIN = 0x00;
         public const byte WIZ_SEND_SID = 0x01;
         public const byte WIZ_CLIENT_PROCESS = 0x02;
-        
+        public const byte WIZ_ACC_LOGIN = 0x03;
 
         /* Packet Define   *
          * Client Packet   *

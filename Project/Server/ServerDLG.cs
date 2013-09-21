@@ -123,19 +123,22 @@ namespace Server
         {
             int index = -1;
             byte command = 0x00 ;
-
+            short sid = -1;
             Tampon.GetByte( data , ref command , ref  index );
+            User pUser = null;
 
             switch (command)
             {
                 case Define.WIZ_LOGIN:
                     newUser(soc,data);
                     break;
-                case Define.WIZ_CLIENT_PROCESS:
-                    short sid = -1;
+                case Define.WIZ_ACC_LOGIN:
+                    pUser = UserPtr(Tampon.GetShort(data, ref index));
+
+                    break;
+                case Define.WIZ_CLIENT_PROCESS:                    
                     Tampon.GetShort(data,ref sid, ref index);
-                    User pUser = UserPtr(sid);
-                    pUser.m_pMain = this;
+                    pUser = UserPtr(sid);
                     pUser.Parsing( data , index );
                     break;
                 default:
@@ -244,6 +247,8 @@ namespace Server
 
             Tampon.SetByte(ref send_buff, Define.WIZ_SEND_SID, ref send_index);
             Tampon.SetShort(ref send_buff, MyUser.m_sSid, ref send_index);
+
+            MyUser.m_pMain = this;
 
             MyUser.Send(send_buff, send_index);
 
