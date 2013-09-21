@@ -77,27 +77,30 @@ namespace Server
 
         }
 
-        public void Logining(byte[] pBuf, int index)
-        {
-            short len = Tampon.GetShort(pBuf, ref index);
-            string acc, pwd;
-            acc = Tampon.GetString(pBuf, len, ref index);
-            len = Tampon.GetShort(pBuf, ref index);
-            pwd = Tampon.GetString(pBuf, len, ref index);
-
-            m_pUserData = m_pMain.m_SqlCommand.Login( acc , pwd );
-
-            if (m_pUserData.Authorty == Define.ACCOUNT_BANNET) Send_Bannet();
-            else if (m_pUserData.Authorty == Define.LOGIN_NOT_LOGIN) Send_NotLogin();
-            else Send_Login();
-        }
+        
 
         public void Send_Bannet()
         {
+            byte[] send_buff = new byte[256];
+            int index = -1;
+
+            Tampon.SetByte(ref send_buff, Define.WIZ_ACC_LOGIN, ref index);
+            Tampon.SetShort(ref send_buff, m_sSid, ref index);
+            Tampon.SetByte(ref send_buff, Define.ACCOUNT_BANNET, ref index);
+
+            Send(send_buff, index);
         }
 
         public void Send_NotLogin()
         {
+            byte[] send_buff = new byte[256];
+            int index = -1;
+
+            Tampon.SetByte(ref send_buff, Define.WIZ_ACC_LOGIN, ref index);
+            Tampon.SetShort(ref send_buff, m_sSid, ref index);
+            Tampon.SetByte(ref send_buff, Define.LOGIN_NOT_LOGIN, ref index);
+
+            Send(send_buff, index);
         }
 
         public void Send_Login()

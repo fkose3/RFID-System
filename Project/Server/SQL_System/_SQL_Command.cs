@@ -48,11 +48,10 @@ namespace Server
         }
         public UserData Login(string acc, string pwd)
         {
-            UserData uData = null;
-            try
-            {
+            UserData uData = new UserData();
+            
                 byte nResult = Check_Account(acc, pwd);
-
+                Console.WriteLine(nResult.ToString());
                 if (nResult == Define.LOGIN_LOGIN)
                 {
                     main_Conn.Open();
@@ -79,7 +78,7 @@ namespace Server
                 }
                 else
                 {
-                    switch(nResult)
+                    switch (nResult)
                     {
                         case Define.LOGIN_BANNET:
                             uData.Authorty = Define.ACCOUNT_BANNET;
@@ -92,32 +91,31 @@ namespace Server
                             break;
                     }
                 }
-            }
-            catch
-            {
-                uData.Authorty = Define.LOGIN_NOT_LOGIN;
-            }
+            
+            
             return uData;
         }
 
         private byte Check_Account(string acc, string pwd)
         {
+
             byte nRet = 0;
             main_Conn.Open();
+            command.CommandText = "Account_Login";
+                       
 
-            command.CommandText = "exec NewStudent @nRet,'" + acc + "'" + pwd + "'";
-
-            command.CommandType = System.Data.CommandType.StoredProcedure;
+            command.CommandType = CommandType.StoredProcedure; 
 
             command.Parameters.Clear();
-
-            SqlParameter outputParam = new SqlParameter("@nRet", SqlDbType.Int)
+            SqlParameter outputParam = new SqlParameter()
             {
+                ParameterName = "@nRet",
+                DbType = DbType.Int16,
                 Direction = ParameterDirection.Output
             };
-
             command.Parameters.Add(outputParam);
-
+            command.Parameters.Add(new SqlParameter("@acc", acc));
+            command.Parameters.Add(new SqlParameter("@pwd", pwd));
             command.ExecuteNonQuery();
 
             nRet = byte.Parse(outputParam.Value.ToString());

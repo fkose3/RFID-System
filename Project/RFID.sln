@@ -15,8 +15,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GlobalClass", "GlobalClass"
 		Client\Packet.cs = Client\Packet.cs
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentAffairsModule", "StudentAffairsModule\StudentAffairsModule.csproj", "{B6D6ACF0-91B8-4B81-8D77-90615E50D405}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,10 +37,6 @@ Global
 		{E7B3FD76-B677-4034-A6C5-6FC359FC839C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E7B3FD76-B677-4034-A6C5-6FC359FC839C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E7B3FD76-B677-4034-A6C5-6FC359FC839C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B6D6ACF0-91B8-4B81-8D77-90615E50D405}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B6D6ACF0-91B8-4B81-8D77-90615E50D405}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B6D6ACF0-91B8-4B81-8D77-90615E50D405}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B6D6ACF0-91B8-4B81-8D77-90615E50D405}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

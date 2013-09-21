@@ -77,12 +77,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\StudentAffairsModule\StudentAffairsModule.csproj">
-      <Project>{b6d6acf0-91b8-4b81-8d77-90615e50d405}</Project>
-      <Name>StudentAffairsModule</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -7,7 +7,7 @@ as
 	
 	SELECT @Count=COUNT(*) FROM Account where acc=@acc AND pwd=@pwd 
 	
-	IF @Count < 2
+	IF @Count < 1
 		BEGIN
 			SET @nRet = 3
 		END
