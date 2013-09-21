@@ -1,8 +1,8 @@
 Alter PROCEDURE Account_Login
+	@nRet tinyint,
 	@acc varchar(21),
 	@pwd varchar(100)
 as 
-	DECLARE @nRet int
 	DECLARE @Count int
 	
 	SELECT @Count=COUNT(*) FROM Account where acc=@acc AND pwd=@pwd 

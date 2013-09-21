@@ -9,5 +9,6 @@ namespace Server
         public string Account, Mail;
         public string Name, Surname;
 
+        public byte Authorty = 230;
     }
 }

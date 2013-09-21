@@ -86,6 +86,22 @@ namespace Server
             pwd = Tampon.GetString(pBuf, len, ref index);
 
             m_pUserData = m_pMain.m_SqlCommand.Login( acc , pwd );
+
+            if (m_pUserData.Authorty == Define.ACCOUNT_BANNET) Send_Bannet();
+            else if (m_pUserData.Authorty == Define.LOGIN_NOT_LOGIN) Send_NotLogin();
+            else Send_Login();
+        }
+
+        public void Send_Bannet()
+        {
+        }
+
+        public void Send_NotLogin()
+        {
+        }
+
+        public void Send_Login()
+        {
         }
 
         public void OnlineProcess(byte[] pBuf = null  , int index = -1 )

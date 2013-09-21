@@ -49,15 +49,84 @@ namespace Server
         public UserData Login(string acc, string pwd)
         {
             UserData uData = null;
+            try
+            {
+                byte nResult = Check_Account(acc, pwd);
 
+                if (nResult == Define.LOGIN_LOGIN)
+                {
+                    main_Conn.Open();
+
+                    command.CommandText = "SELECT name,surname,Authorty FROM Account where acc='" + acc + "' AND pwd='" + pwd + "'";
+
+                    D_reader = command.ExecuteReader();
+
+                    if (D_reader.Read())
+                    {
+                        uData.Account = acc;
+                        uData.Mail = null;
+                        int i = -1;
+                        uData.Name = D_reader.GetValue(++i).ToString();
+                        uData.Surname = D_reader.GetValue(++i).ToString();
+                        uData.Authorty = byte.Parse(D_reader.GetValue(++i).ToString());
+                    }
+                    else
+                    {
+                        uData.Authorty = Define.LOGIN_NOT_LOGIN;
+                    }
+
+                    main_Conn.Close();
+                }
+                else
+                {
+                    switch(nResult)
+                    {
+                        case Define.LOGIN_BANNET:
+                            uData.Authorty = Define.ACCOUNT_BANNET;
+                            break;
+                        case Define.LOGIN_INCORRENT:
+                            uData.Authorty = Define.LOGIN_INCORRENT;
+                            break;
+                        default:
+                            uData.Authorty = Define.LOGIN_NOT_LOGIN;
+                            break;
+                    }
+                }
+            }
+            catch
+            {
+                uData.Authorty = Define.LOGIN_NOT_LOGIN;
+            }
+            return uData;
+        }
+
+        private byte Check_Account(string acc, string pwd)
+        {
+            byte nRet = 0;
             main_Conn.Open();
 
+            command.CommandText = "exec NewStudent @nRet,'" + acc + "'" + pwd + "'";
 
+            command.CommandType = System.Data.CommandType.StoredProcedure;
+
+            command.Parameters.Clear();
+
+            SqlParameter outputParam = new SqlParameter("@nRet", SqlDbType.Int)
+            {
+                Direction = ParameterDirection.Output
+            };
+
+            command.Parameters.Add(outputParam);
+
+            command.ExecuteNonQuery();
+
+            nRet = byte.Parse(outputParam.Value.ToString());
 
             main_Conn.Close();
 
-            return uData;
+            return nRet;
         }
+
 
         /** 
          * Program starts to read the tables.

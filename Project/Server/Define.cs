@@ -37,7 +37,15 @@ namespace Server
 
         public const byte WIZ_STUDENT_ABSENTEEISM = 0x00;
         public const byte WIZ_STUDENT_LESSON_LIST = 0x01;
-        
+
+        public const byte ACCOUNT_BANNET = 255;
+        public const byte ACCOUNT_MASTER = 0;
+        public const byte ACCOUNT_C_USER = 1;
+
+        public const byte LOGIN_INCORRENT = 3;
+        public const byte LOGIN_BANNET = 2;
+        public const byte LOGIN_LOGIN = 1;
+        public const byte LOGIN_NOT_LOGIN = 230;
 
         public static float TimeGet()
         {
