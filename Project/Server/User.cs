@@ -105,12 +105,19 @@ namespace Server
 
         public void Send_Login()
         {
+            byte[] send_buff = new byte[256];
+            int index = -1;
+
+            Tampon.SetByte(ref send_buff, Define.WIZ_ACC_LOGIN, ref index);
+            Tampon.SetShort(ref send_buff, m_sSid, ref index);
+            Tampon.SetByte(ref send_buff, Define.LOGIN_LOGIN, ref index);
+
+            Send(send_buff, index);
         }
 
         public void OnlineProcess(byte[] pBuf = null  , int index = -1 )
         {
             float Current = Define.TimeGet();
-            m_pMain.Print(Current+"-"+OnlineRemain,1);
             if (OnlineRemain == 0)
             {
                 OnlineRemain = Current + 30;

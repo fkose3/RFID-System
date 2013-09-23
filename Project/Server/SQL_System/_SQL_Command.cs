@@ -56,6 +56,7 @@ namespace Server
                 {
                     main_Conn.Open();
 
+                    command.CommandType = CommandType.Text;
                     command.CommandText = "SELECT name,surname,Authorty FROM Account where acc='" + acc + "' AND pwd='" + pwd + "'";
 
                     D_reader = command.ExecuteReader();

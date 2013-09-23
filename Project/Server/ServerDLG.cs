@@ -154,10 +154,10 @@ namespace Server
             acc = Tampon.GetString(pBuf, len, ref index);
             len = Tampon.GetShort(pBuf, ref index);
             pwd = Tampon.GetString(pBuf, len, ref index);
-            Console.WriteLine("Account Logining : [ " + acc + " = " + pwd + " ]");
+            
 
             pUser.m_pUserData = this.m_SqlCommand.Login(acc, pwd);
-            Print("Authorty"+pUser.m_pUserData.Authorty.ToString(), 4);
+            
             if (pUser.m_pUserData.Authorty == Define.ACCOUNT_BANNET || pUser.m_pUserData.Authorty == Define.LOGIN_BANNET) pUser.Send_Bannet();
             else if (pUser.m_pUserData.Authorty == Define.LOGIN_NOT_LOGIN || pUser.m_pUserData.Authorty == Define.LOGIN_INCORRENT) pUser.Send_NotLogin();
             else pUser.Send_Login();

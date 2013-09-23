@@ -19,6 +19,7 @@ namespace OgretimGorevlisi
             txtPass.PasswordChar = '*';
         }
 
+
         private void Login()
         {
                byte[] pBuf = new byte[512];
