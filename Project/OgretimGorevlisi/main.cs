@@ -149,7 +149,7 @@ namespace OgretimGorevlisi
         {
             try
             {
-                TcpClient Client = new TcpClient("127.0.0.1", 15001);
+                TcpClient Client = new TcpClient(server_ip, 15001);
 
                 NetworkStream Stream = Client.GetStream();
 
