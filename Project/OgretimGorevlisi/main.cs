@@ -18,24 +18,52 @@ namespace OgretimGorevlisi
         public main()
         {
             InitializeComponent();
-            lgnBox.Focus();
+            
         }
 
         private Packet pkt;
         private LoginBox lgnBox;
         private short m_sSid;
         private bool Login;
+        public string server_ip;
 
         private void main_Load(object sender, EventArgs e)
         {
-            Login = false;
-            pkt = new Packet(this);
+            try
+            {
+                Login = false;
 
-            lgnBox = new LoginBox();
-            lgnBox.Show();
-            
-            StartPgram();
-            
+                LoadIni();
+
+                pkt = new Packet(this);
+
+                panel1.Dock = DockStyle.Fill;
+                lgnBox = new LoginBox();
+                lgnBox.Show();
+
+                StartPgram();
+                lgnBox.Focus();
+            }
+            catch
+            {
+                MessageBox.Show("Program Düzgün bir şekilde başlatılamadı.", "Kritik Hata..!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void LoadIni()
+        {
+            string sAppPath = Environment.CurrentDirectory;
+            _INI m_ini = new _INI(sAppPath+"/Server.ini");
+
+            try
+            {
+                server_ip = m_ini.Read("SERVER", "IP");                
+            }
+            catch
+            {
+                m_ini.Write("SERVER", "IP", "127.0.0.1");
+                server_ip = "127.0.0.1";
+            }
         }
 
         private void StartPgram()

@@ -181,7 +181,7 @@ namespace Server
         {
             set { _IP = value; }
             get { return _IP; }
-        }
+        } 
 
         public bool isOnline // İs Online Client 
         {
