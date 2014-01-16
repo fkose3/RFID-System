@@ -17,7 +17,7 @@ namespace Server
         public List<Teacher> m_TeacherArray = new List<Teacher>();
         public List<Lesson_Program> m_LessonProgram = new List<Lesson_Program>();
         public List<Student> m_StudentArray = new List<Student>();
-        public _ODBC_System m_MainDb = new _ODBC_System("","","");
+        public _ODBC_System m_MainDb = new _ODBC_System("RFID_System","Login","*****");
 
         RFSocket pkt;
 
@@ -43,7 +43,7 @@ namespace Server
                     FailingProgram();
                 }
 
-                Print("\t[  OK  ]", 2);
+                Print("\t[ OK ]", 2);
 
                 m_db = new _SQL("RFID_SYSTEM", this);
 
@@ -54,14 +54,7 @@ namespace Server
                     FailingProgram();
                 }
 
-                Print("-> SQL Bağlantiti gerceklestiriliyor...", 4);
-                if (!m_db.checkConnect())
-                {
-                    Print("\t[  FAIL  ]", 1);
-                    FailingProgram();
-                }
-
-                Print("\t[  OK  ]", 2);
+                Print("\t[ OK ]", 2);
 
                 Print("-> SQL Command Baslatiliyor...", 4);
 
