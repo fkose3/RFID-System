@@ -43,6 +43,8 @@
     <Compile Include="Lesson.cs" />
     <Compile Include="Lesson_Program.cs" />
     <Compile Include="newEventHandle.cs" />
+    <Compile Include="SQL_System\_ODBC_Connection.cs" />
+    <Compile Include="SQL_System\_ODBC_System.cs" />
     <Compile Include="SQL_System\_SQL.cs" />
     <Compile Include="Define.cs" />
     <Compile Include="EditUser.cs">
@@ -57,7 +59,7 @@
     <Compile Include="isActiveClients.Designer.cs">
       <DependentUpon>isActiveClients.cs</DependentUpon>
     </Compile>
-    <Compile Include="Packet.cs" />
+    <Compile Include="RFSocket.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServerDLG.cs" />

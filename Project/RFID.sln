@@ -9,12 +9,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ogrenci Isleri", "Ogrenci I
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OgretimGorevlisi", "OgretimGorevlisi\OgretimGorevlisi.csproj", "{E7B3FD76-B677-4034-A6C5-6FC359FC839C}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GlobalClass", "GlobalClass", "{C9234848-E88D-4AB9-877A-E0F806D2C09F}"
-	ProjectSection(SolutionItems) = preProject
-		Client\Define.cs = Client\Define.cs
-		Client\Packet.cs = Client\Packet.cs
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

@@ -6,14 +6,14 @@ using System.Threading;
 
 namespace Server
 {
-    class Packet
+    class RFSocket
     {
         Thread Channel;
         ServerDLG pMain;
 
         const int Port = 15001;
 
-        public Packet( ServerDLG main )
+        public RFSocket(ServerDLG main)
         {
             pMain = main;
 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Server.SQL_System;
+using System;
 using System.Collections.Generic;
 using System.Net.Sockets;
 using System.Text;
@@ -6,6 +7,7 @@ using System.Windows.Forms;
 
 namespace Server
 {
+
     public class ServerDLG
     {
 
@@ -15,8 +17,9 @@ namespace Server
         public List<Teacher> m_TeacherArray = new List<Teacher>();
         public List<Lesson_Program> m_LessonProgram = new List<Lesson_Program>();
         public List<Student> m_StudentArray = new List<Student>();
+        public _ODBC_System m_MainDb = new _ODBC_System("","","");
 
-        Packet pkt;
+        RFSocket pkt;
 
         private _SQL m_db;
 
@@ -43,6 +46,13 @@ namespace Server
                 Print("\t[  OK  ]", 2);
 
                 m_db = new _SQL("RFID_SYSTEM", this);
+
+                Print("-> Odbc Bağlantısı gerçekleştiriliyor");
+                if (!m_MainDb.TestConnection())
+                {
+                    Print("\t[  FAIL  ]", 1);
+                    FailingProgram();
+                }
 
                 Print("-> SQL Bağlantiti gerceklestiriliyor...", 4);
                 if (!m_db.checkConnect())
@@ -295,7 +305,7 @@ namespace Server
         {
             try
             {
-                pkt = new Packet(this);
+                pkt = new RFSocket(this);
                 return true;
             }
             catch
@@ -304,7 +314,7 @@ namespace Server
             }
         }
 
-        public string Print(string Text, byte type) // Print Console
+        public string Print(string Text, byte type = 4) // Print Console
         {
             switch (type)
             {
