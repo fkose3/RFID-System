@@ -37,5 +37,10 @@ namespace Server
             get { return lessonid; }
             set { lessonid = value; }
         }
+
+        public int GetAbsenteeism()  
+        {
+            return 0;
+        }
     }
 }
