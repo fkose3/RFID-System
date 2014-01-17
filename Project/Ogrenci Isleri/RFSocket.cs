@@ -13,7 +13,7 @@ namespace Ogrenci_Isleri
         Thread Channel;
         OgrenciIsleri pMain;
 
-        const int Port = 15001;
+        const int Port = 15000;
 
         public RFSocket(OgrenciIsleri main)
         {
@@ -38,7 +38,9 @@ namespace Ogrenci_Isleri
 
                 Socket soc = PortReader.AcceptSocket();
                 soc.Receive(read_Data, read_Data.Length, 0);
-                pMain.Parsing(read_Data, soc);
+                Packet pkt = new Packet(read_Data, soc);
+
+                pMain.Parsing(pkt);
 
 
                 PortReader.Stop();
@@ -46,16 +48,5 @@ namespace Ogrenci_Isleri
             }
         }
 
-        public void Send_Packet(byte[] pData, Socket soc)
-        {
-            try
-            {
-                soc.Send(pData, pData.Length, 0);
-            }
-            catch
-            {
-                pMain.Print("-> Socket Sending Error...", 1);
-            }
-        }
     }
 }

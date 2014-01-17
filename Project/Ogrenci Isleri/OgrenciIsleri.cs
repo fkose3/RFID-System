@@ -15,11 +15,19 @@ namespace Ogrenci_Isleri
         public OgrenciIsleri()
         {
             InitializeComponent();
+            RFSocket skt = new RFSocket(this);
         }
-
-        internal void Parsing(byte[] read_Data, System.Net.Sockets.Socket soc)
+        
+        internal void Parsing(Packet pkt)
         {
-            throw new NotImplementedException();
+            byte command = pkt.GetByte();
+
+            switch (command)
+            {
+                case 0x00:
+
+                    break;
+            }
         }
     }
 }

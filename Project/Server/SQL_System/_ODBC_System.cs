@@ -178,5 +178,10 @@ namespace Server.SQL_System
 
             return sts_list;
         }
+
+        internal byte Login(string AccUid, string AccPwd)
+        {
+            return 0x00;
+        }
     }
 }

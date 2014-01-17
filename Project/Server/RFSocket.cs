@@ -36,6 +36,8 @@ namespace Server
 
                 Socket soc = PortReader.AcceptSocket();
                 soc.Receive(read_Data, read_Data.Length, 0);
+                Packet pkt = new Packet(read_Data, soc);
+                pMain.Parsing(pkt);
                 pMain.Parsing(read_Data, soc);
                 
                 

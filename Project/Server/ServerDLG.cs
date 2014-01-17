@@ -19,11 +19,8 @@ namespace Server
         public List<Student> m_StudentArray = new List<Student>();
         public _ODBC_System m_MainDb;
 
+        #region DLG System
         RFSocket pkt;
-
-        private _SQL m_db;
-
-        public _SQL_Command m_SqlCommand;
 
         public ServerDLG()
         {
@@ -45,7 +42,6 @@ namespace Server
 
                 Print("\t[ OK ]", 2);
 
-                m_db = new _SQL("RFID_SYSTEM", this);
 
                 Print("-> Odbc Bağlantısı gerçekleştiriliyor");
                 if (!m_MainDb.TestConnection())
@@ -54,11 +50,6 @@ namespace Server
                     FailingProgram();
                 }
 
-                Print("\t[ OK ]", 2);
-
-                Print("-> SQL Command Baslatiliyor...", 4);
-
-                m_SqlCommand = new _SQL_Command(m_db.GetSqlConnet(),this);
                 Print("\t[ OK ]", 2);
 
 
@@ -122,6 +113,7 @@ namespace Server
 
 
         }
+        #endregion
 
         public void Parsing(byte[] data, Socket soc) // Handle Function 
         {
@@ -160,7 +152,7 @@ namespace Server
             pwd = Tampon.GetString(pBuf, len, ref index);
             
 
-            pUser.m_pUserData = this.m_SqlCommand.Login(acc, pwd);
+            //pUser.m_pUserData = this.m_SqlCommand.Login(acc, pwd);
             
             if (pUser.m_pUserData.Authorty == Define.ACCOUNT_BANNET || pUser.m_pUserData.Authorty == Define.LOGIN_BANNET) pUser.Send_Bannet();
             else if (pUser.m_pUserData.Authorty == Define.LOGIN_NOT_LOGIN || pUser.m_pUserData.Authorty == Define.LOGIN_INCORRENT) pUser.Send_NotLogin();
@@ -340,5 +332,49 @@ namespace Server
             Environment.Exit(0);
         }
 
+
+        internal void Parsing(Packet pkt)
+        {
+            byte command = pkt.GetByte();
+
+            switch (command)
+            {
+                case 0xAA:
+                    new StudentAffairs(pkt);
+                    break;
+                case Define.WIZ_LOGIN:
+                    byte subcommand = pkt.GetByte();
+                    
+                    switch (subcommand)
+                    {
+                        case 0xAA: // Login student affairs
+                            LoginStudentAffairs(pkt);
+                            break;
+                        case 0xBB: // Login teacher
+
+                            break;
+                        case 0xCC: // Login student 
+
+                            break;
+                    }
+
+                    break;
+            }
+        }
+
+        private void LoginStudentAffairs(Packet pkt)
+        {
+            string AccUid = pkt.GetString();
+            string AccPwd = pkt.GetString();
+
+            byte nRet = m_MainDb.Login(AccUid, AccPwd);
+
+            if (nRet == 1)
+            {
+
+            }
+        }
+
+        
     }
 }
