@@ -16,5 +16,10 @@ namespace Ogrenci_Isleri
         {
             InitializeComponent();
         }
+
+        internal void Parsing(byte[] read_Data, System.Net.Sockets.Socket soc)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

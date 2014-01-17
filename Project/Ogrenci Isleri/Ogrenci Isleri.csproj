@@ -50,8 +50,10 @@
     <Compile Include="OgrenciIsleri.Designer.cs">
       <DependentUpon>OgrenciIsleri.cs</DependentUpon>
     </Compile>
+    <Compile Include="Packet.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RFSocket.cs" />
     <EmbeddedResource Include="OgrenciIsleri.resx">
       <DependentUpon>OgrenciIsleri.cs</DependentUpon>
     </EmbeddedResource>

@@ -17,7 +17,7 @@ namespace Server
         public List<Teacher> m_TeacherArray = new List<Teacher>();
         public List<Lesson_Program> m_LessonProgram = new List<Lesson_Program>();
         public List<Student> m_StudentArray = new List<Student>();
-        public _ODBC_System m_MainDb = new _ODBC_System("RFID_System","Login","*****");
+        public _ODBC_System m_MainDb;
 
         RFSocket pkt;
 
@@ -27,7 +27,7 @@ namespace Server
 
         public ServerDLG()
         {
-             
+            m_MainDb = new _ODBC_System("RFID_System","Login","*****", this);
             // Başlangic mesaji
 
             Print("****************************************", 2);
@@ -64,7 +64,7 @@ namespace Server
 
                 Print("-> Ders Listesi Okunuyor...", 4);
 
-                m_LessonArray = m_SqlCommand.LessonList();
+                m_LessonArray = m_MainDb.LessonList();
 
                 if (m_LessonArray.Count > 0)
                     Print("\t[ OK ]\t[ Count : " + m_LessonArray.Count + " ]", 2);
@@ -74,7 +74,7 @@ namespace Server
 
                 Print("-> Ogretmen Listesi Okunuyor...", 4);
 
-                m_TeacherArray = m_SqlCommand.TeacherList();
+                m_TeacherArray = m_MainDb.TeacherList();
 
                 if (m_TeacherArray.Count > 0)
                     Print("\t[ OK ]\t[ Count : " + m_TeacherArray.Count + " ]", 2);
@@ -83,7 +83,7 @@ namespace Server
 
                 Print("-> Ders Programı Listesi Okunuyor...", 4);
 
-                m_LessonProgram = m_SqlCommand.LessonProgram();
+                m_LessonProgram = m_MainDb.LessonProgram();
 
                 if (m_LessonProgram.Count > 0)
                     Print("\t[ OK ]\t[ Count : " + m_LessonProgram.Count + " ]", 2);
@@ -93,7 +93,8 @@ namespace Server
 
                 Print("-> Ogrenci Listesi Okunuyor...", 4);
 
-                m_StudentArray = m_SqlCommand.StudensList();
+                m_StudentArray = m_MainDb
+                    .StudensList();
 
                 if (m_StudentArray.Count > 0)
                     Print("\t[ OK ]\t[ Count : " + m_StudentArray.Count + " ]", 2);

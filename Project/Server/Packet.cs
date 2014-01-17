@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Client
+namespace Server
 {
     public class Packet
     {

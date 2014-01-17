@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Net.Sockets;
 using System.Text;
+using System.Threading.Tasks;
 
-namespace Client
+namespace Ogrenci_Isleri
 {
     public class Packet
     {
@@ -64,7 +67,7 @@ namespace Client
             byt[0] = GetByte();
             byt[1] = GetByte();
 
-            return Convert.ToInt16(BitConverter.ToInt16(byt, 0));
+            return Convert.ToInt16(BitConverter.ToInt16(byt,0));
         }
 
         public Int32 GetShort()
@@ -73,7 +76,7 @@ namespace Client
             for (int i = 0; i < byt.Length; i++)
                 byt[i] = GetByte();
 
-            return (Int32)BitConverter.ToInt32(byt, 0);
+            return (Int32)BitConverter.ToInt32(byt,0);
         }
 
         public Int64 GetShort()
@@ -82,7 +85,7 @@ namespace Client
             for (int i = 0; i < byt.Length; i++)
                 byt[i] = GetByte();
 
-            return (Int64)BitConverter.ToInt64(byt, 0);
+            return (Int64)BitConverter.ToInt64(byt,0);
         }
     }
 }

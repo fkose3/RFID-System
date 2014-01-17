@@ -21,7 +21,7 @@ namespace Client
   
        
         ClientPC Client = null;
-        public Packet pkt;
+        public RFSocket pkt;
         public string language;
         public int soket;
         public string MAIN_SERVER_IP;
@@ -60,7 +60,7 @@ namespace Client
         {
             try
             {
-                pkt = new Packet(this);
+                pkt = new RFSocket(this);
             }
             catch
             {
@@ -118,6 +118,11 @@ namespace Client
            Button btn = (Button)sender;
 
             btn.BackColor = Color.FromArgb(111, 255, 254);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
         }
 
         

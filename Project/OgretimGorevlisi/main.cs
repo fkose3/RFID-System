@@ -21,7 +21,7 @@ namespace OgretimGorevlisi
             
         }
 
-        private Packet pkt;
+        private RFSocket pkt;
         private LoginBox lgnBox;
         private short m_sSid;
         private bool Login;
@@ -35,7 +35,7 @@ namespace OgretimGorevlisi
 
                 LoadIni();
 
-                pkt = new Packet(this);
+                pkt = new RFSocket(this);
 
                 panel1.Dock = DockStyle.Fill;
                 lgnBox = new LoginBox();
