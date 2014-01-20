@@ -17,7 +17,9 @@ namespace Server
         public List<Teacher> m_TeacherArray = new List<Teacher>();
         public List<Lesson_Program> m_LessonProgram = new List<Lesson_Program>();
         public List<Student> m_StudentArray = new List<Student>();
+        public List<StudentAffairs> m_StudentAffairsArray = new List<StudentAffairs>();
         public _ODBC_System m_MainDb;
+        private Int32 m_AffairsSid = 0;
 
         #region DLG System
         RFSocket pkt;
@@ -223,6 +225,18 @@ namespace Server
             return std;
         }
 
+        public StudentAffairs StudentAffairsPtr(int sSid)
+        {
+            foreach (StudentAffairs pCurrent in m_StudentAffairsArray)
+            {
+                if (pCurrent.m_Sid != sSid) continue;
+
+                return pCurrent;
+            }
+
+            return new StudentAffairs(new Packet(0)); // Bad Client
+        }
+
         public void newUser(Socket soc , byte[] data)  // New User 
         {
             User MyUser = null;
@@ -358,14 +372,26 @@ namespace Server
             string AccPwd = pkt.GetString().ToUpper();
 
             byte nRet = m_MainDb.Login(AccUid, AccPwd);
-            Print(nRet.ToString());
 
             pkt.Clean();
-
+            
             pkt.AddParameter(Define.WIZ_LOGIN);
             pkt.AddParameter(nRet);
-
+            switch (nRet)
+            {
+                case 1:
+                case 0:
+                    pkt.AddParameter((Int32)NewStudentAffairsSid(AccUid));
+                    break;
+            }
             pkt.Send();
+
+        }
+
+        private Int32 NewStudentAffairsSid(string Uid)
+        {
+            m_StudentAffairsArray.Add(new StudentAffairs(Uid,m_AffairsSid));
+            return m_AffairsSid++;
         }
 
         
