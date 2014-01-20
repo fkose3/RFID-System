@@ -21,13 +21,20 @@ namespace Ogrenci_Isleri
         internal void Parsing(Packet pkt)
         {
             byte command = pkt.GetByte();
-
             switch (command)
             {
-                case 0x00:
-
+                case Define.WIZ_LOGIN:
+                    MessageBox.Show(pkt.GetByte().ToString());
                     break;
             }
         }
+
+
+        private void OgrenciIsleri_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        
     }
 }

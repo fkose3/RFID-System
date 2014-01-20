@@ -40,6 +40,10 @@ namespace OgretimGorevlisi
         public const byte WIZ_STUDENT_ABSENTEEISM = 0x00;
         public const byte WIZ_STUDENT_LESSON_LIST = 0x01;
 
+        public const byte WIZ_LOGIN_SAffairs = 0xAA;
+        public const byte WIZ_LOGIN_TLogin = 0xBB;
+        public const byte WIZ_LOGIN_Client = 0xCC;
+
         public const byte ACCOUNT_BANNET = 255;
         public const byte ACCOUNT_MASTER = 0;
         public const byte ACCOUNT_C_USER = 1;
@@ -59,5 +63,6 @@ namespace OgretimGorevlisi
 
             return time;
         }
+
     }
 }

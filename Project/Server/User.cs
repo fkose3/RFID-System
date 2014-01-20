@@ -54,7 +54,7 @@ namespace Server
 
         public void AbsenteeismSend()
         {
-            List<Absenteeism> Abs_List = m_pMain.m_SqlCommand.GetAbsenteeism(0);
+            List<Absenteeism> Abs_List = m_pMain.m_MainDb.GetAbsenteeism(0);
 
             byte[] send_buff = new byte[1024];
             int send_index = -1;

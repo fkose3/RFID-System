@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
-namespace Server
+namespace Ogrenci_Isleri
 {
     public static class Define
     {
@@ -55,7 +57,7 @@ namespace Server
         {
             float time = 0;
 
-            time += (DateTime.Now.Hour * 60 )* 60; // hour in secont
+            time += (DateTime.Now.Hour * 60) * 60; // hour in secont
             time += DateTime.Now.Minute * 60; // minute in secont
             time += DateTime.Now.Second;
 

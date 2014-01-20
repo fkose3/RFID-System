@@ -104,5 +104,28 @@ namespace Server
 
             return Encoding.ASCII.GetString(txtByte);
         }
+
+        public void Clean()
+        {
+            send_index = 0;
+            get_index = 0;
+        }
+
+        public void Send()
+        {
+            try
+            {
+                TcpClient Client = new TcpClient(skt.RemoteEndPoint.ToString().Split(':')[0], 15001);
+
+                NetworkStream Stream = Client.GetStream();
+
+                if (Stream.CanRead)
+                    Stream.Write(send_byte, 0, send_index + 1);
+            }
+            catch
+            {
+                // ErrorSend.Parsing(ErrorSend.ErrorType.NotConnect, m_pMain);
+            }
+        }
     }
 }

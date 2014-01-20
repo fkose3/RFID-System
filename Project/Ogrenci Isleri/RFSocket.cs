@@ -13,7 +13,7 @@ namespace Ogrenci_Isleri
         Thread Channel;
         OgrenciIsleri pMain;
 
-        const int Port = 15000;
+        const int Port = 15001;
 
         public RFSocket(OgrenciIsleri main)
         {

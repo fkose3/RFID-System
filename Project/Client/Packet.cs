@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Net.Sockets;
 using System.Text;
 
 namespace Client
@@ -53,6 +54,16 @@ namespace Client
                 AddParameter(byt[i]);
         }
 
+        public void AddParameter(string param)
+        {
+            byte[] txtByte = Encoding.ASCII.GetBytes(param);
+
+            AddParameter((Int16)txtByte.Length);
+
+            for (int i = 0; i < txtByte.Length; i++)
+                AddParameter(txtByte[i]);
+        }
+
         public byte GetByte()
         {
             return send_byte[get_index++];
@@ -67,7 +78,7 @@ namespace Client
             return Convert.ToInt16(BitConverter.ToInt16(byt, 0));
         }
 
-        public Int32 GetShort()
+        public Int32 GetDWORD()
         {
             byte[] byt = new byte[4];
             for (int i = 0; i < byt.Length; i++)
@@ -76,13 +87,39 @@ namespace Client
             return (Int32)BitConverter.ToInt32(byt, 0);
         }
 
-        public Int64 GetShort()
+        public Int64 GetInt64()
         {
             byte[] byt = new byte[8];
             for (int i = 0; i < byt.Length; i++)
                 byt[i] = GetByte();
 
             return (Int64)BitConverter.ToInt64(byt, 0);
+        }
+
+        public string GetString()
+        {
+            byte[] txtByte = new byte[GetShort()];
+            for (int i = 0; i < txtByte.Length; i++)
+                txtByte[i] = GetByte();
+
+            return Encoding.ASCII.GetString(txtByte);
+        }
+
+        public void Send()
+        {
+            try
+            {
+                TcpClient Client = new TcpClient(skt.RemoteEndPoint.ToString().Split(':')[0], 15000);
+
+                NetworkStream Stream = Client.GetStream();
+
+                if (Stream.CanRead)
+                    Stream.Write(send_byte, 0, send_index + 1);
+            }
+            catch
+            {
+                // ErrorSend.Parsing(ErrorSend.ErrorType.NotConnect, m_pMain);
+            }
         }
     }
 }

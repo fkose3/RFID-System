@@ -93,17 +93,7 @@ namespace Server
                     Print("\t[ Emty ]", 5);
 
 
-                if (!isForm)
-                {
-                    isForm = !isForm;
-                    try
-                    {
-                        Application.EnableVisualStyles();
-                        Application.SetCompatibleTextRenderingDefault(false);
-                        Application.Run(new windowsPane(this));
-                    }
-                    catch { }
-                }
+              
             }
             catch
             {
@@ -347,7 +337,7 @@ namespace Server
                     
                     switch (subcommand)
                     {
-                        case 0xAA: // Login student affairs
+                        case Define.WIZ_LOGIN_SAffairs: // Login student affairs
                             LoginStudentAffairs(pkt);
                             break;
                         case 0xBB: // Login teacher
@@ -364,15 +354,18 @@ namespace Server
 
         private void LoginStudentAffairs(Packet pkt)
         {
-            string AccUid = pkt.GetString();
-            string AccPwd = pkt.GetString();
+            string AccUid = pkt.GetString().ToUpper();
+            string AccPwd = pkt.GetString().ToUpper();
 
             byte nRet = m_MainDb.Login(AccUid, AccPwd);
+            Print(nRet.ToString());
 
-            if (nRet == 1)
-            {
+            pkt.Clean();
 
-            }
+            pkt.AddParameter(Define.WIZ_LOGIN);
+            pkt.AddParameter(nRet);
+
+            pkt.Send();
         }
 
         

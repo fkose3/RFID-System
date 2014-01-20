@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Define.cs" />
     <Compile Include="OgrenciIsleri.cs">
       <SubType>Form</SubType>
     </Compile>

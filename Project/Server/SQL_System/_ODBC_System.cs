@@ -181,6 +181,22 @@ namespace Server.SQL_System
 
         internal byte Login(string AccUid, string AccPwd)
         {
+            OdbcDataReader D_reader = ExecutableScript("SELECT Authorty FROM TB_Account where AccUid = '" + AccUid + "' AND AccPwd = '" + AccPwd + "'");
+            try
+            {
+                if (D_reader.Read())
+                {
+                    return byte.Parse(D_reader.GetValue(0).ToString());
+                }
+                else
+                {
+                    return Define.LOGIN_NOT_LOGIN;
+                }
+            }
+            catch
+            {
+                return Define.LOGIN_NOT_LOGIN;
+            }
             return 0x00;
         }
     }

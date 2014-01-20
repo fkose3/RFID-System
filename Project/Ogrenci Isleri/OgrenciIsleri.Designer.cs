@@ -36,11 +36,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(942, 459);
             this.Name = "OgrenciIsleri";
+            this.Load += new System.EventHandler(this.OgrenciIsleri_Load);
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
 
     }
 }

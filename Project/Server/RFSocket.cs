@@ -11,7 +11,7 @@ namespace Server
         Thread Channel;
         ServerDLG pMain;
 
-        const int Port = 15001;
+        const int Port = 15000;
 
         public RFSocket(ServerDLG main)
         {

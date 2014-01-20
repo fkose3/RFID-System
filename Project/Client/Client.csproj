@@ -80,6 +80,7 @@
     <Compile Include="OkumaYazma\ErrorSend.cs" />
     <Compile Include="OkumaYazma\ReadConfig.cs" />
     <Compile Include="Packet.cs" />
+    <Compile Include="RFSocket.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="ProgressBarBlue.cs">
       <SubType>UserControl</SubType>
